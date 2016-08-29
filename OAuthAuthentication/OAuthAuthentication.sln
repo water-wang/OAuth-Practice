@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthAuthentication.API", "OAuthAuthentication.API\OAuthAuthentication.API.csproj", "{40FF3BD3-0863-4C26-BC94-BE63D74CF1EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthAuthentication.Web", "OAuthAuthentication.Web\OAuthAuthentication.Web.csproj", "{AB0F32A8-EF22-41B7-8EED-6FB84035DCD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40FF3BD3-0863-4C26-BC94-BE63D74CF1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FF3BD3-0863-4C26-BC94-BE63D74CF1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FF3BD3-0863-4C26-BC94-BE63D74CF1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FF3BD3-0863-4C26-BC94-BE63D74CF1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0F32A8-EF22-41B7-8EED-6FB84035DCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0F32A8-EF22-41B7-8EED-6FB84035DCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0F32A8-EF22-41B7-8EED-6FB84035DCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0F32A8-EF22-41B7-8EED-6FB84035DCD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
