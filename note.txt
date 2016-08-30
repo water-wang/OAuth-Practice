@@ -1,0 +1,40 @@
+users are notorious for choosing highly unsecure passwords for their accounts.
+These types of expectations create poor usability for users, in that they won’t be able to remember the password, and also ensures that they either pick the easiest way they can to enter the site, or write down that complex password on a Post-it note on their display. Usability needs to be a part of identity security for it to be effective.
+
+Data encryption isn’t always about trying to prevent data from being stolen; it’s meant to slow down hackers long enough to make it infeasible for them to decrypt massive amounts of data, or to delay them until you can take appropriate action.
+
+The standard industry mechanism for determining password strength is called information entropy
+Password entropy is a measurement of how unpredictable a password is
+
+usually take one of two steps (sometimes both) in securing identity in web development:
+1.This can be requirements for length, nonalphabetic characters, uppercase and lowercase characters, nondictionary words, etc. the user will more likely forget that password, and then require the use of the “forgot your password” reset flow.
+2.allows only a certain number of login attempts before temporarily locking the account, to prevent potential brute-force attacks against weak passwords. 
+
+our main goals will be focusing on hardening the system, or finding a new methodology for building our identity and data security with new tools and techniques.
+
+The good algorithms: 
+PBKDF2 --- Time tested and has been the subject of intense research over the years
+bcrypt --- it hinders GPU hardware enhancements
+scrypt --- scrypt is designed to be incredibly hardware and memory intensive in order to crack
+The bad algorithms: MD5,SHA-1,SHA-2
+
+Data at Rest
+the encryption methods that should be used on the database are SHA-256 (Secure Hash Algorithm) or better, AES (Advanced Encryption Standard), and RSA (Rivest-Shamir-Adleman).
+Data federation is another method to help prevent unwanted access in the case of an application with global reach and data storage.
+store only the minimum amount of sensitive user data that is required to run your application, site, or services. 
+
+Data in Motion
+Signup information from a user that will be used for account access and identity
+Transmission of profile information to and from service APIs
+Other data collected through the application or website and transmitted for database storage
+
+attack vectors : 
+Brute-force attacks  --- the length of the password 
+Dictionary attacks  --- Use of a salt
+Rainbow tables  --- Use of a salt
+Malware  ---  two-factor of authentication (e.g., text-message verification) 
+
+Salt:
+One general rule of thumb is for the salt to be the same size as the output of the hash function used. 
+we don’t need to obfuscate or encrypt the salt, and it can be stored as a plain-text value in our database along with the hash
+pepper is another value that is added to the salt and password when hashing.
