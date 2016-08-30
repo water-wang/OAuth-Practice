@@ -4,19 +4,24 @@ Financial API (FAPI) :
 http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
 
 OAuth2.0 :
-https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
-http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
-https://aaronparecki.com/2012/07/29/2/oauth2-simplified
---http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
-http://nimbusds.com/blog/implementing-oauth-2-0-access-tokens/
---http://stackoverflow.com/questions/26755573/how-to-implement-oauth2-server-in-asp-net-mvc-5-and-web-api-2
-http://lepture.com/en/2013/create-oauth-server
-http://www.tugberkugurlu.com/archive/simple-oauth-server-implementing-a-simple-oauth-server-with-katana-oauth-authorization-server-components-part-1
---https://www.safaribooksonline.com/library/view/identity-and-data/9781491937006/ch04.html
+-https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
+-http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
+-https://aaronparecki.com/2012/07/29/2/oauth2-simplified
+**http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/
+https://www.safaribooksonline.com/library/view/identity-and-data/9781491937006/ch01.html#ch1
+http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
-https://tools.ietf.org/html/rfc6749
-https://tools.ietf.org/html/rfc6750
-https://tools.ietf.org/html/rfc2818
+
+
+ASP.NET Identity
+http://www.asp.net/identity
+http://bitoftech.net/2015/01/21/asp-net-identity-2-with-asp-net-web-api-2-accounts-management/
+https://leastprivilege.com/2013/11/15/adding-refresh-tokens-to-a-web-api-v2-authorization-server/
+http://blog.timney.net/persisting-your-refresh-tokens/
+
 
 
 RPC，AD，Dubboo, SSO, OpenId
+https://tools.ietf.org/html/rfc6749
+https://tools.ietf.org/html/rfc6750
+https://tools.ietf.org/html/rfc2818

@@ -62,7 +62,7 @@ namespace OAuthAuthentication.API
             return await _ctx.SaveChangesAsync() > 0;
         }
 
-        private async Task<bool> RemoveRefreshToken(string refreshTokenId)
+        public async Task<bool> RemoveRefreshToken(string refreshTokenId)
         {
             var refreshToken = await _ctx.RefreshTokens.FindAsync(refreshTokenId);
 

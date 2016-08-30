@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using OAuthAuthentication.API.Models.Enums;
+using Microsoft.Owin.Security;
 
 namespace OAuthAuthentication.API.Providers
 {
@@ -74,9 +75,16 @@ namespace OAuthAuthentication.API.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            var allowedOrigin = context.OwinContext.Get<string>("as:clientAllowedOrigin");
 
-            using(AuthRepository _repo = new AuthRepository())
+            if (allowedOrigin == null)
+            {
+                allowedOrigin = "*";
+            }
+
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
+
+            using (AuthRepository _repo = new AuthRepository())
             {
                 IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
 
@@ -89,11 +97,49 @@ namespace OAuthAuthentication.API.Providers
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+            identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             identity.AddClaim(new Claim("sub", context.UserName));
             identity.AddClaim(new Claim("role", "user"));
 
+            var props = new AuthenticationProperties(new Dictionary<string, string>
+                {
+                    {"as:client_id",(context.ClientId ==null? string.Empty: context.ClientId)},
+                    {"userName", context.UserName}
+                });
+
+            var ticket = new AuthenticationTicket(identity, props);
             context.Validated(identity);
         }
-        
+
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
+            {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+            return Task.FromResult<object>(null);
+        }
+
+
+        public override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
+        {
+            var originalClient = context.Ticket.Properties.Dictionary["as:client_id"];
+            var currentClient = context.ClientId;
+
+            if (originalClient != currentClient)
+            {
+                context.SetError("invalid_clientId", "Refresh token is issued to a different clientId.");
+
+                return Task.FromResult<object>(null);
+            }
+
+            var newIdentity = new ClaimsIdentity(context.Ticket.Identity);
+            newIdentity.AddClaim(new Claim("newClaim", "newValue"));
+
+            var newTicket = new AuthenticationTicket(newIdentity, context.Ticket.Properties);
+
+            context.Validated(newIdentity);
+            return Task.FromResult<object>(null);
+        }
     }
 }
