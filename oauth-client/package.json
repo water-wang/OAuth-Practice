@@ -1,5 +1,5 @@
 {
-  "name": "oauth-server",
+  "name": "oauth-client",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,9 +9,10 @@
   "author": "Walter Wang",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "ejs-mate": "^2.3.0",
     "express": "^4.14.0",
-    "mongoose": "^4.5.10",
-    "node-uuid": "^1.4.7"
+    "express-session": "^1.14.1",
+    "node-uuid": "^1.4.7",
+    "request": "^2.74.0"
   }
 }

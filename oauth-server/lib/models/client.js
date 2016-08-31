@@ -7,8 +7,8 @@ var ClientModel = function () {
         clientSecret:   { type: String, default: uuid.v4(), unique: true },
         createdAt:      { type: Date, default: Date.now },
         name:           { type: String, unique: true },
-        scope:          { type: String },
-        userId:         { type: String },
+        scope:          { type: String, default: 'openid' },
+        userId:         { type: String }, //??
         redirectUri:    { type: String }
     });
 

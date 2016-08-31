@@ -7,7 +7,7 @@ var AuthCodeModel = function () {
         createdAt:      { type: Date, default: Date.now, expires: '10m' },
         consumed:       { type: Boolean, default: false },
         clientId:       { type: String },
-        userId:         { type: String },
+        userId:         { type: String },//??
         redirectUri:    { type: String }
     });
 

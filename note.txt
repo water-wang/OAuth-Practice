@@ -78,6 +78,11 @@ Authorization Codes are used in redirection-based authorization flows.
 Access Tokens are tokens with a short lifetime that are used to access protected resources.
 Refresh Tokens allow refreshing Access Tokens after they are consumed or expired.
 
+OpenID Connect provides two ways to handle the consumer and service provider communication. 
+Basic Client
+Implicit Client
+
+
 
 
 

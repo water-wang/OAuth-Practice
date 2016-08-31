@@ -1,27 +1,31 @@
 ﻿Web application authentication strategy
 
-Financial API (FAPI) : 
-http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
-
 OAuth2.0 :
--https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
--http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
--https://aaronparecki.com/2012/07/29/2/oauth2-simplified
-**http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/
+https://tools.ietf.org/html/rfc6749
+https://tools.ietf.org/html/rfc6750
 https://www.safaribooksonline.com/library/view/identity-and-data/9781491937006/ch01.html#ch1
+https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
+http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
 http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
 
+OpenId:
+http://openid.net/specs/openid-connect-basic-1_0.html
+http://openid.net/specs/openid-connect-core-1_0.html
+https://openid.net/specs/openid-connect-session-1_0.html
+http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-standard/
+http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
 
 ASP.NET Identity
 http://www.asp.net/identity
+http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx
+http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/
 http://bitoftech.net/2015/01/21/asp-net-identity-2-with-asp-net-web-api-2-accounts-management/
 https://leastprivilege.com/2013/11/15/adding-refresh-tokens-to-a-web-api-v2-authorization-server/
 http://blog.timney.net/persisting-your-refresh-tokens/
 
 
 
+
 RPC，AD，Dubboo, SSO, OpenId
-https://tools.ietf.org/html/rfc6749
-https://tools.ietf.org/html/rfc6750
-https://tools.ietf.org/html/rfc2818
+
