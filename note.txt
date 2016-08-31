@@ -74,7 +74,9 @@ OpenID Connect relies on an additional endpoint called UserInfo.
 OpenID Connect enables handling a user’s login or determining whether a user is logged in already.
 A central part of the OpenID Connect specification is the ID Token. It is signed using JSON Web Signatures(JWS) and can be encrypted using JSON Web Encryption(JWE).
 
-
+Authorization Codes are used in redirection-based authorization flows.
+Access Tokens are tokens with a short lifetime that are used to access protected resources.
+Refresh Tokens allow refreshing Access Tokens after they are consumed or expired.
 
 
 
