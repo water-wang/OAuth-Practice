@@ -1,3 +1,4 @@
+--------Chapter 1--------
 users are notorious for choosing highly unsecure passwords for their accounts.
 These types of expectations create poor usability for users, in that they won’t be able to remember the password, and also ensures that they either pick the easiest way they can to enter the site, or write down that complex password on a Post-it note on their display. Usability needs to be a part of identity security for it to be effective.
 
@@ -18,6 +19,8 @@ bcrypt --- it hinders GPU hardware enhancements
 scrypt --- scrypt is designed to be incredibly hardware and memory intensive in order to crack
 The bad algorithms: MD5,SHA-1,SHA-2
 
+
+--------Chapter 2--------
 Data at Rest
 the encryption methods that should be used on the database are SHA-256 (Secure Hash Algorithm) or better, AES (Advanced Encryption Standard), and RSA (Rivest-Shamir-Adleman).
 Data federation is another method to help prevent unwanted access in the case of an application with global reach and data storage.
@@ -38,3 +41,48 @@ Salt:
 One general rule of thumb is for the salt to be the same size as the output of the hash function used. 
 we don’t need to obfuscate or encrypt the salt, and it can be stored as a plain-text value in our database along with the hash
 pepper is another value that is added to the salt and password when hashing.
+
+
+
+--------Chapter 3--------
+Social Identity: such as Facebook or Google+ allow users to quickly access other services 
+Concrete Identity: online banking or ecommerce require a more concrete profile that provides useful information
+Thin Identity: phone number as a means of logging in
+
+The current sentiment in user-experience research is that a preview of offered functionality is desirable and helps people decide whether they want to commit to an application.
+
+Trust zones allow us to scale our security based on users’ behavior, environment, and our ability to determine whether they are who they say they are. 
+
+
+
+--------Chapter 4--------
+
+Authentication is the process of identifying a user against a service.  -- OpenID Connect
+Authorization tries to solve the issue of providing access to a user’s protected resources. -- OAuth 2.0 
+
+The Bearer Token is one of the most used default token types in the OAuth 2.0 standard. 
+MAC (which stands for Message Authentication Code)
+
+three different ways to use Bearer Tokens in practice:
+using Request Header Fields to provide the Access Token.
+token can be passed in the request’s body as a form-encoded parameter named access_token.
+providing the Access Token as a URI query parameter, use access_token followed by the Access Token itself.
+
+OpenID Connect is a standard issued by the OpenID Foundation in February 2014 and resembles an extra layer on top of the OAuth 2.0 core that handles user authentication in a standardized REST-like manner. All data being transmitted is formatted using JSON. 
+While OAuth is supposed to be a standard for authorization, OpenID Connect enables authentication use cases leveraging the OAuth 2.0 protocol.
+OpenID Connect relies on an additional endpoint called UserInfo.
+OpenID Connect enables handling a user’s login or determining whether a user is logged in already.
+A central part of the OpenID Connect specification is the ID Token. It is signed using JSON Web Signatures(JWS) and can be encrypted using JSON Web Encryption(JWE).
+
+
+
+
+
+
+
+
+
+
+
+
+
