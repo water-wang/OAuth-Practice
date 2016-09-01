@@ -83,7 +83,24 @@ Basic Client
 Implicit Client
 
 
+--------Chapter 5--------
 
+n-Factor Authentication:
+Something you know
+Something you have
+Something you are
+
+One-Time Passwords:
+time-synchronization, generates short-lived tokens.
+Both the second and third implementations are based on mathematical algorithms and generate long-lived tokens.
+One way to handle these OTPs is generating them based on the previous password, and therefore requiring them to be used in a predefined order. The other way to handle mathematically generated OTPs is generating them based on a random challenge.
+
+OTPs can be delivered by either text messages or emails.
+The industry tends to favor text over email at the moment because it’s broadly available; a phone number is rated to be unique across all users, and can be made accessible through text-to-speech and therefore also cover landline phones.
+A reason to use emails instead is the cost of sending a text message and the inability to check whether the text message arrived at its destination. Another issue of text messages is the weak (A5/x) or nonexistent encryption standards that allow for man-in-the-middle attacks.
+
+Authy /  Google Authenticator
+user register -> sms to user -> verify code -> delete when user delete account 
 
 
 
