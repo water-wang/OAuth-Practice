@@ -102,6 +102,38 @@ A reason to use emails instead is the cost of sending a text message and the ina
 Authy /  Google Authenticator
 user register -> sms to user -> verify code -> delete when user delete account 
 
+consider biometric factors less as a security mechanism and more as a mechanism to prove identity.
+
+
+--------Chapter 6--------
+
+Cookies are used as client-side storage for information—they’re mostly used in order to store certain user preferences, authentication details (such as the username and password), and session information.
+RFC 2965 “HTTP State Management Mechanisms” from 20001 states that cookies are not to be used for account information unless encryption is being used.
+
+Sessions are stored server side and serve as a way to persist user interaction with web applications.
+it is reasonable to provide the session’s creation date as an additional suffix in the session hash itself. This not only helps to reduce computing time, but also adds another factor to the generated hash and therefore acts as an additional security mechanism. 
+
+Node Security Project
+npm install -g nsp
+
+
+--------Chapter 7--------
+
+SSL/TLS:
+When creating a secure SSL connection on your website, you will be required to set up an SSL certificate provided by an SSL certificate authority (CA), which is a company that can issue these digital certificates.
+domain validation
+organization validation
+extended validation
+
+Asymmetric cryptography:
+public/private key encryption
+In a potentially insecure channel, sender encrypt message with Sender private key and receiver public key. Receiver decrypt message with Sender public key and receiver private key.
+Each party (sender and receiver) has their own private key, and that key doesn’t need to be transmitted
+
+Symmetric cryptography:
+shared secret encryption
+In a trusted environment, using a single key can significantly increase the encryption and decryption speed, but at the same time, if the single key is compromised, the resulting damage might be worse.
+
 
 
 
