@@ -1,0 +1,36 @@
+-----Client Registration-----
+Specify the client type
+confidential - a confidential server-based component
+public - a public browser-based component
+
+The authorization server issues the registered client a client identifier -- a unique string
+client identifier string size is left undefined.
+
+Confidential clients are typically issued (or establish) a set of client credentials
+
+The client identifier and password are encoded using the "application/x-www-form-urlencoded"
+HTTP Basic authentication scheme for authenticating clients.
+client credentials parameters can only be transmitted in the request-body.
+authorization server MUST require the use of TLS.
+
+provide its client redirection URIs
+include any other information required by the authorization server(application name, redirect uri)
+
+
+-----Protocol Endpoints-----
+Authorization endpoint:
+authorization server MUST first verify the identity of the resource owner, SHOULD require the use of TLS.
+response_type MUST be one of "code" for requesting an authorization code, "token" for requesting an access token or a registered extension value.
+If an authorization request is missing the "response_type" parameter, or if the response type is not understood, the authorization server MUST return an error response
+
+client's redirection endpoint previously established during the client registration process or when making the authorization request, MUST be an absolute URI.
+Lack of a redirection URI registration requirement can enable an attacker to use the authorization endpoint
+
+If multiple redirection URIs have been registered, if only part of the redirection URI has been registered, or if no redirection URI has been registered, the client MUST include a redirection URI with the authorization request using the "redirect_uri" request parameter.
+If an authorization request fails validation, authorization server SHOULD inform the resource owner
+
+Token endpoint:
+Redirection endpoint
+
+
+

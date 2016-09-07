@@ -10,8 +10,10 @@ http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-s
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
 
 OpenId:
-http://openid.net/specs/openid-connect-basic-1_0.html
 http://openid.net/specs/openid-connect-core-1_0.html
+http://openid.net/specs/openid-connect-discovery-1_0.html
+http://openid.net/specs/openid-connect-registration-1_0.html
+http://openid.net/specs/openid-connect-basic-1_0.html
 https://openid.net/specs/openid-connect-session-1_0.html
 http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-standard/
 http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/

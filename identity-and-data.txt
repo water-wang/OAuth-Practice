@@ -1,0 +1,144 @@
+--------Chapter 1--------
+users are notorious for choosing highly unsecure passwords for their accounts.
+These types of expectations create poor usability for users, in that they won’t be able to remember the password, and also ensures that they either pick the easiest way they can to enter the site, or write down that complex password on a Post-it note on their display. Usability needs to be a part of identity security for it to be effective.
+
+Data encryption isn’t always about trying to prevent data from being stolen; it’s meant to slow down hackers long enough to make it infeasible for them to decrypt massive amounts of data, or to delay them until you can take appropriate action.
+
+The standard industry mechanism for determining password strength is called information entropy
+Password entropy is a measurement of how unpredictable a password is
+
+usually take one of two steps (sometimes both) in securing identity in web development:
+1.This can be requirements for length, nonalphabetic characters, uppercase and lowercase characters, nondictionary words, etc. the user will more likely forget that password, and then require the use of the “forgot your password” reset flow.
+2.allows only a certain number of login attempts before temporarily locking the account, to prevent potential brute-force attacks against weak passwords. 
+
+our main goals will be focusing on hardening the system, or finding a new methodology for building our identity and data security with new tools and techniques.
+
+The good algorithms: 
+PBKDF2 --- Time tested and has been the subject of intense research over the years
+bcrypt --- it hinders GPU hardware enhancements
+scrypt --- scrypt is designed to be incredibly hardware and memory intensive in order to crack
+The bad algorithms: MD5,SHA-1,SHA-2
+
+
+--------Chapter 2--------
+Data at Rest
+the encryption methods that should be used on the database are SHA-256 (Secure Hash Algorithm) or better, AES (Advanced Encryption Standard), and RSA (Rivest-Shamir-Adleman).
+Data federation is another method to help prevent unwanted access in the case of an application with global reach and data storage.
+store only the minimum amount of sensitive user data that is required to run your application, site, or services. 
+
+Data in Motion
+Signup information from a user that will be used for account access and identity
+Transmission of profile information to and from service APIs
+Other data collected through the application or website and transmitted for database storage
+
+attack vectors : 
+Brute-force attacks  --- the length of the password 
+Dictionary attacks  --- Use of a salt
+Rainbow tables  --- Use of a salt
+Malware  ---  two-factor of authentication (e.g., text-message verification) 
+
+Salt:
+One general rule of thumb is for the salt to be the same size as the output of the hash function used. 
+we don’t need to obfuscate or encrypt the salt, and it can be stored as a plain-text value in our database along with the hash
+pepper is another value that is added to the salt and password when hashing.
+
+
+
+--------Chapter 3--------
+Social Identity: such as Facebook or Google+ allow users to quickly access other services 
+Concrete Identity: online banking or ecommerce require a more concrete profile that provides useful information
+Thin Identity: phone number as a means of logging in
+
+The current sentiment in user-experience research is that a preview of offered functionality is desirable and helps people decide whether they want to commit to an application.
+
+Trust zones allow us to scale our security based on users’ behavior, environment, and our ability to determine whether they are who they say they are. 
+
+
+
+--------Chapter 4--------
+
+Authentication is the process of identifying a user against a service.  -- OpenID Connect
+Authorization tries to solve the issue of providing access to a user’s protected resources. -- OAuth 2.0 
+
+The Bearer Token is one of the most used default token types in the OAuth 2.0 standard. 
+MAC (which stands for Message Authentication Code)
+
+three different ways to use Bearer Tokens in practice:
+using Request Header Fields to provide the Access Token.
+token can be passed in the request’s body as a form-encoded parameter named access_token.
+providing the Access Token as a URI query parameter, use access_token followed by the Access Token itself.
+
+OpenID Connect is a standard issued by the OpenID Foundation in February 2014 and resembles an extra layer on top of the OAuth 2.0 core that handles user authentication in a standardized REST-like manner. All data being transmitted is formatted using JSON. 
+While OAuth is supposed to be a standard for authorization, OpenID Connect enables authentication use cases leveraging the OAuth 2.0 protocol.
+OpenID Connect relies on an additional endpoint called UserInfo.
+OpenID Connect enables handling a user’s login or determining whether a user is logged in already.
+A central part of the OpenID Connect specification is the ID Token. It is signed using JSON Web Signatures(JWS) and can be encrypted using JSON Web Encryption(JWE).
+
+Authorization Codes are used in redirection-based authorization flows.
+Access Tokens are tokens with a short lifetime that are used to access protected resources.
+Refresh Tokens allow refreshing Access Tokens after they are consumed or expired.
+
+OpenID Connect provides two ways to handle the consumer and service provider communication. 
+Basic Client
+Implicit Client
+
+
+--------Chapter 5--------
+
+n-Factor Authentication:
+Something you know
+Something you have
+Something you are
+
+One-Time Passwords:
+time-synchronization, generates short-lived tokens.
+Both the second and third implementations are based on mathematical algorithms and generate long-lived tokens.
+One way to handle these OTPs is generating them based on the previous password, and therefore requiring them to be used in a predefined order. The other way to handle mathematically generated OTPs is generating them based on a random challenge.
+
+OTPs can be delivered by either text messages or emails.
+The industry tends to favor text over email at the moment because it’s broadly available; a phone number is rated to be unique across all users, and can be made accessible through text-to-speech and therefore also cover landline phones.
+A reason to use emails instead is the cost of sending a text message and the inability to check whether the text message arrived at its destination. Another issue of text messages is the weak (A5/x) or nonexistent encryption standards that allow for man-in-the-middle attacks.
+
+Authy /  Google Authenticator
+user register -> sms to user -> verify code -> delete when user delete account 
+
+consider biometric factors less as a security mechanism and more as a mechanism to prove identity.
+
+
+--------Chapter 6--------
+
+Cookies are used as client-side storage for information—they’re mostly used in order to store certain user preferences, authentication details (such as the username and password), and session information.
+RFC 2965 “HTTP State Management Mechanisms” from 20001 states that cookies are not to be used for account information unless encryption is being used.
+
+Sessions are stored server side and serve as a way to persist user interaction with web applications.
+it is reasonable to provide the session’s creation date as an additional suffix in the session hash itself. This not only helps to reduce computing time, but also adds another factor to the generated hash and therefore acts as an additional security mechanism. 
+
+Node Security Project
+npm install -g nsp
+
+
+--------Chapter 7--------
+
+SSL/TLS:
+When creating a secure SSL connection on your website, you will be required to set up an SSL certificate provided by an SSL certificate authority (CA), which is a company that can issue these digital certificates.
+domain validation
+organization validation
+extended validation
+
+Asymmetric cryptography:
+public/private key encryption
+In a potentially insecure channel, sender encrypt message with Sender private key and receiver public key. Receiver decrypt message with Sender public key and receiver private key.
+Each party (sender and receiver) has their own private key, and that key doesn’t need to be transmitted
+
+Symmetric cryptography:
+shared secret encryption
+In a trusted environment, using a single key can significantly increase the encryption and decryption speed, but at the same time, if the single key is compromised, the resulting damage might be worse.
+
+
+
+
+
+
+
+
+
