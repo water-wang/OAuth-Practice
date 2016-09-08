@@ -30,7 +30,33 @@ If multiple redirection URIs have been registered, if only part of the redirecti
 If an authorization request fails validation, authorization server SHOULD inform the resource owner
 
 Token endpoint:
+client MUST use the HTTP "POST" method when making access token requests.
+A client MAY use the "client_id" "authorization_code" "grant_type" request parameter
+
+Authorization grant types:
+Authorization Code Grant page-24
+maximum authorization code lifetime of 10 minutes
+The client MUST NOT use the authorization code more than once.
+
+Access Token Successful Response
+parameters are included in the entity-body of the HTTP response using the "application/json"
+Cache-Control: no-store
+Pragma: no-cache
+	 
+	 
+	 
 Redirection endpoint
+
+
+
+
+
+
+
+
+
+
+
 
 
 
