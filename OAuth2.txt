@@ -43,7 +43,7 @@ parameters are included in the entity-body of the HTTP response using the "appli
 Cache-Control: no-store
 Pragma: no-cache
 	 
-	 
+authorization server MUST require public clients and SHOULD require confidential clients to register their redirection URIs.	 
 	 
 Redirection endpoint
 
