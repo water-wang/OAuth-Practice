@@ -1,0 +1,68 @@
+Requested by Clients by including the openid scope value in the Authorization Request.
+Information about the authentication performed is returned in a JSON Web Token (JWT) [JWT] called an ID Token
+OAuth 2.0 Authentication Servers implementing OpenID Connect are also referred to as OpenID Providers (OPs).
+OAuth 2.0 Clients using OpenID Connect are also referred to as Relying Parties (RPs).
+
+OpenID Connect performs authentication to log in the End-User or to determine that the End-User is already logged in.
+
+------OpenID Connect------
+With OpenID, you maintain your profile only at your OpenID provider, and all the other sites become OpenID relying parties. These “talk” with your OpenID provider to obtain your information.
+
+OpenID flow:
+1. user types his or her OpenID on the relying party web site. An OpenID is a unique URL.
+2. relying party do a discovery based on it to find out the corresponding OpenID provider.
+3. relying party create an association with the OpenID provider with a shared secret key.
+4. user is redirected to the discovered OpenID provider.
+5. user has to authenticate and approve the attribute request from the relying party.
+
+OpenID Connect defines two ways to request user attributes. 
+1. The client application use the initial OpenID Connect authentication request to request attributes, include the requested claims in the claims parameter as a JSON message.
+https://localhost:9443/oauth2/authorize?
+        response_type=code&
+        scope=openid&
+        client_id=NJ0LXcfdOW20EvD6DU0l0p01u_Ya&
+        redirect_uri=https://localhost/callback&
+        claims={ "id_token":
+                            {
+                               "email": {"essential": true},
+                               "given_name": {"essential": true},
+                            }
+               }
+
+2. Later talk to a UserInfo endpoint hosted by the authorization server. 
+there are two ways to get user attributes from the UserInfo endpoint. 
+-1.defines four scope values to request attributes: profile, email, address, and phone.
+https://localhost:9443/oauth2/authorize?
+        response_type=code&
+        scope=openid phone email&
+        client_id=NJ0LXcfdOW20EvD6DU0l0p01u_Ya&
+        redirect_uri=https://localhost/callback
+		
+GET /userinfo HTTP/1.1
+Host: auth.server.com
+Authorization: Bearer SJHkhew870hooi90
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+  {
+   "phone": "94712841302",
+   "email": "joe@authserver.com",
+  }
+
+-2. retrieve user attributes from the UserInfo endpoint is through the claims parameter. 
+POST /userinfo HTTP/1.1
+Host: auth.server.com
+Authorization: Bearer SJHkhew870hooi90
+
+claims={ "userinfo":
+                    {
+                       "email": {"essential": true}
+                    }
+       }
+
+
+
+
+
+
