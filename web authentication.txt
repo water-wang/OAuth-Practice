@@ -17,6 +17,12 @@ http://openid.net/specs/openid-connect-basic-1_0.html
 https://openid.net/specs/openid-connect-session-1_0.html
 http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-standard/
 http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
+http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
+https://www.safaribooksonline.com/library/view/advanced-api-security/9781430268178/
+
+JWT: https://tools.ietf.org/html/rfc7519
+JWS: https://tools.ietf.org/html/rfc7515
+JWE: https://tools.ietf.org/html/rfc7516
 
 ASP.NET Identity
 http://www.asp.net/identity
