@@ -1,6 +1,6 @@
 ﻿Web application authentication strategy
 
-OAuth2.0 :
+OAuth2.0:
 https://tools.ietf.org/html/rfc6749
 https://tools.ietf.org/html/rfc6750
 https://www.safaribooksonline.com/library/view/identity-and-data/9781491937006/ch01.html#ch1
@@ -9,7 +9,7 @@ http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
 http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
 
-OpenId:
+OpenID Connect:
 http://openid.net/specs/openid-connect-core-1_0.html
 http://openid.net/specs/openid-connect-discovery-1_0.html
 http://openid.net/specs/openid-connect-registration-1_0.html
@@ -19,6 +19,9 @@ http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-s
 http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
 http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
 https://www.safaribooksonline.com/library/view/advanced-api-security/9781430268178/
+
+SAML2.0 Profile: https://tools.ietf.org/html/rfc7522
+JWT Profile: https://tools.ietf.org/html/rfc7523
 
 JWT: https://tools.ietf.org/html/rfc7519
 JWS: https://tools.ietf.org/html/rfc7515
@@ -33,7 +36,7 @@ https://leastprivilege.com/2013/11/15/adding-refresh-tokens-to-a-web-api-v2-auth
 http://blog.timney.net/persisting-your-refresh-tokens/
 
 
-
+User Managed Access (UMA)
 
 RPC，AD，Dubboo, SSO, OpenId
 
