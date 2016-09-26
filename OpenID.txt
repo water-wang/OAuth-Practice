@@ -62,6 +62,15 @@ claims={ "userinfo":
        }
 
 
+Using the claims parameter is the only way to request Claims outside the standard set.
+
+Aggregated Claims are asserted by a Claims Provider other than the OpenID Provider but are returned by OpenID Provider.
+Distributed Claims are asserted by a Claims Provider other than the OpenID Provider but are returned as references by the OpenID Provider.
+
+The sub (subject) and iss (issuer) Claims, used together, are the only Claims that an RP can rely upon as a stable identifier for the End-User
+
+
+
 
 
 
