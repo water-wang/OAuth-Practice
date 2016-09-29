@@ -5,7 +5,9 @@ OAuth 2.0 Clients using OpenID Connect are also referred to as Relying Parties (
 
 OpenID Connect performs authentication to log in the End-User or to determine that the End-User is already logged in.
 
-------OpenID Connect------
+
+
+------OpenID Connect Core------
 With OpenID, you maintain your profile only at your OpenID provider, and all the other sites become OpenID relying parties. These “talk” with your OpenID provider to obtain your information.
 
 OpenID flow:
@@ -61,13 +63,84 @@ claims={ "userinfo":
                     }
        }
 
-
 Using the claims parameter is the only way to request Claims outside the standard set.
 
 Aggregated Claims are asserted by a Claims Provider other than the OpenID Provider but are returned by OpenID Provider.
 Distributed Claims are asserted by a Claims Provider other than the OpenID Provider but are returned as references by the OpenID Provider.
 
 The sub (subject) and iss (issuer) Claims, used together, are the only Claims that an RP can rely upon as a stable identifier for the End-User
+
+
+
+------OpenID Connect Discovery------
+OpenID Connect uses WebFinger to locate the OpenID Provider for an End-User.
+
+OpenID Provider Issuer discovery: 
+determinthe location of the OpenID Provider.
+GET /.well-known/webfinger
+Request: resource, host, rel(http://openid.net/specs/connect/1.0/issuer)
+Response: links array element with href and rel
+
+The purpose of Identifier normalization:
+determine normalized Resource and Host values from the user input Identifier. 
+The user input Identifier SHOULD be a URL or URI relative reference.
+
+User Input using E-Mail Address
+User Input using URL
+User Input using Hostname and Port
+User Input using "acct" URI Syntax
+
+OpenID Provider Metadata:
+issuer
+authorization_endpoint
+token_endpoint
+userinfo_endpoint
+jwks_uri
+registration_endpoint
+scopes_supported
+response_types_supported: Dynamic OpenID Providers MUST support the code, id_token, and the token id_token Response Type values
+response_modes_supported: the default for Dynamic OpenID Providers is ["query", "fragment"]
+grant_types_supported: Dynamic OpenID Providers MUST support the authorization_code and implicit Grant Type values
+acr_values_supported
+subject_types_supported: include pairwise and public
+token_endpoint_auth_methods_supported: JSON array containing a list of Client Authentication methods supported by this Token Endpoint.The options are client_secret_post, client_secret_basic, client_secret_jwt, and private_key_jwt
+claim_types_supported: Values defined by this specification are normal, aggregated, and distributed.
+claims_supported: JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for.
+claims_parameter_supported: Boolean value specifying whether the OP supports use of the claims parameter
+request_parameter_supported: Boolean value specifying whether the OP supports use of the request parameter
+request_uri_parameter_supported: Boolean value specifying whether the OP supports use of the request_uri parameter
+require_request_uri_registration: Boolean value specifying whether the OP requires any request_uri values used to be pre-registered using the request_uris registration parameter. 
+
+OpenID Provider Configuration Information:
+GET /.well-known/openid-configuration
+request: host
+response: a subset of Metadata.
+
+
+
+------OpenID Connect Dynamic Registration------
+Client Metadata:
+redirect_uris: One of these registered Redirection URI values MUST exactly match the redirect_uri parameter value used in each Authorization Request
+response_types: default is that the Client will use only the code Response Type
+grant_types: authorization_code, implicit, refresh_token
+	response_type 		- 		grant_types
+	code 				- 		authorization_code
+	id_token  			-		implicit
+	token id_token 		- 		implicit
+	code id_token 		- 		authorization_code, implicit
+	code token 			- 		authorization_code, implicit
+	code token id_token - 		authorization_code, implicit
+application_type: native or web, web must use the https scheme as redirect_uris
+contacts
+client_name
+client_uri
+policy_uri
+tos_uri: terms of service
+subject_type: pairwise and public
+token_endpoint_auth_method: options are client_secret_post, client_secret_basic, client_secret_jwt, private_key_jwt, and none
+default_max_age: 
+
+
 
 
 

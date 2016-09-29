@@ -13,8 +13,8 @@ OpenID Connect:
 http://openid.net/specs/openid-connect-core-1_0.html
 http://openid.net/specs/openid-connect-discovery-1_0.html
 http://openid.net/specs/openid-connect-registration-1_0.html
-http://openid.net/specs/openid-connect-basic-1_0.html
 https://openid.net/specs/openid-connect-session-1_0.html
+http://openid.net/specs/openid-connect-basic-1_0.html
 http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-standard/
 http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
 http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
