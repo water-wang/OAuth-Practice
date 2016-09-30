@@ -19,7 +19,36 @@ OpenID Code Flow:
 6. Client sends the code to the Token Endpoint to receive an Access Token and ID Token in the response.
 7. Client validates the tokens and retrieves the End-User's Subject Identifier.
 
-ID Token Claims:
+Authentication Request:
+response_type
+client_id
+scope
+redirect_uri
+state
+prompt: whether the Authorization Server prompts the End-User for reauthentication and consent
+max_age: elapsed time in seconds since the last time the End-User was actively authenticated by the OP
+id_token_hint: ID Token previously issued by the Authorization Server being passed as a hint about the End-User's current or past authenticated session with the Client
+
+Authorization Server Authenticates End-User:
+The Authorization Server logs in the End-User or verifies whether the End-User is logged in, depending upon the request parameter values used.
+
+Authorization Server Obtains End-User Consent/Authorization:
+presenting the End-User with a dialogue that enables the End-User to recognize what is being consenting to and grant consent
+
+End-User Grants Authorization:
+If the End-User grants the access request, the Authorization Server issues a code and delivers it to the Client
+
+Client Sends Code:
+Client makes a Token Request by presenting its Authorization Grant to the Token Endpoint using the grant_type value authorization_code
+
+Client Receives Tokens:
+access_token: Access Token for the UserInfo Endpoint
+token_type: Bearer
+id_token
+expires_in
+refresh_token
+
+ID Token: The sub and iss Claims, used together, are the only Claims that an RP can rely upon as a stable identifier for the End-User
 iss: Issuer Identifier for the Issuer of the response. authorization server url
 sub: unique and never reassigned identifier within the Issuer for the End-User
 aud: client_id of the Relying Party as an audience value
@@ -37,8 +66,29 @@ ID Token Validation:
 7. When a max_age request is made, the Client SHOULD check the auth_time Claim value
 
 UserInfo Endpoint:
-request: Access Token
+request: GET /userinfo HTTP/1.1 Access Token
 response: sub (subject) Claim MUST always be returned, MUST be verified to exactly match the sub Claim in the ID Token
+
+Scope Values: To minimize the amount of information that the End-User is being asked to disclose
+openid
+profile: the End-User's default profile Claims
+email
+address
+phone
+offline_access: requests Refresh Token be issued that can be used to obtain an Access Token that grants access to the End-User's UserInfo Endpoint even when the End-User is not logged in
+Multiple scope values MAY be used by creating a space-delimited, case-sensitive list
+
+Standard Claims: The UserInfo Endpoint MUST return Claims in JSON format
+sub
+name
+profile
+picture
+website
+email
+gender
+birthdate
+address: formatted, street_address, locality, region, postal_code, country
+etc.
 
 OpenID Connect defines two ways to request user attributes. 
 1. The client application use the initial OpenID Connect authentication request to request attributes, include the requested claims in the claims parameter as a JSON message.
