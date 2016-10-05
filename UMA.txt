@@ -1,0 +1,39 @@
+Resource owners configure authorization servers with access policies that serve as asynchronous authorization grants.
+
+-----Terminology-----
+protection API token (PAT): An OAuth access token with the scope uma_protection, used by the resource server at the protection API, consisting of the resource set registration, permission registration, and token introspection endpoints.
+resource set registration endpoint: An endpoint at the authorization server that allows the resource server to register resource sets.
+permission registration endpoint: An endpoint at the authorization server that allows the resource server to request permission tickets.
+token introspection endpoint: An endpoint at the authorization server that allows the resource server to query the status of an RPT and its associated authorization data.
+
+authorization API token (AAT): An OAuth access token with the scope uma_authorization, used by the client at the authorization API, consisting of the RPT endpoint.
+RPT endpoint: An endpoint at the authorization server that issues RPTs and authorization data to the client.
+requesting party token (RPT): An UMA access token associated with a set of authorization data, used by the client to gain access to protected resources at the resource server.
+authorization data: Data associated with an RPT that enables some combination of the authorization server and resource server to determine the correct extent of access to allow to a client.
+
+subject: requesting party
+verbs: one or more scopes of access
+object: resource set
+
+Authorization Server Configuration Data:
+version: "1.0"
+issuer: authorization server
+pat_profiles_supported: OAuth access token types supported by this authorization server for PAT issuance, "bearer".
+aat_profiles_supported: OAuth access token types supported by this authorization server for AAT issuance, "bearer".
+rpt_profiles_supported: Profiles supported by this authorization server for RPT issuance. 
+pat_grant_types_supported: OAuth grant types supported by this authorization server in issuing PATs, authorization_code.
+aat_grant_types_supported: OAuth grant types supported by this authorization server in issuing AATs, authorization_code.
+claim_token_profiles_supported
+uma_profiles_supported
+dynamic_client_endpoint: The endpoint to use for performing dynamic client registration
+token_endpoint: A requested scope of uma_protection results in a PAT. A requested scope of uma_authorization results in an AAT. 
+authorization_endpoint
+introspection_endpoint: The endpoint URI at which the resource server introspects an RPT presented to it by a client
+resource_set_registration_endpoint: The endpoint URI at which the resource server registers resource sets to put them under authorization manager protection. 
+permission_registration_endpoint: The endpoint URI at which the resource server registers a requested permission that would suffice for a client's access attempt. 
+rpt_endpoint: The endpoint URI at which the client asks for authorization data. 
+
+
+
+
+

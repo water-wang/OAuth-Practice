@@ -9,6 +9,11 @@ http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
 http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
 
+OAuth 2.0 Token Introspection: https://tools.ietf.org/html/rfc7662
+OAuth 2.0 Dynamic Client Registration Protocol: https://tools.ietf.org/html/rfc7591
+OAuth 2.0 Message Authentication Code (MAC) Tokens: https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-05
+
+
 OpenID Connect:
 http://openid.net/specs/openid-connect-core-1_0.html
 http://openid.net/specs/openid-connect-discovery-1_0.html
@@ -20,12 +25,11 @@ http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
 http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
 https://www.safaribooksonline.com/library/view/advanced-api-security/9781430268178/
 
-OAuth 2.0 Token Introspection: https://tools.ietf.org/html/rfc7662
-OAuth 2.0 Dynamic Client Registration Protocol: https://tools.ietf.org/html/rfc7591
-OAuth 2.0 Message Authentication Code (MAC) Tokens: https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-05
 
 User Managed Access (UMA): single-point authorization management
 https://docs.kantarainitiative.org/uma/rec-uma-core.html
+https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html
+https://kantarainitiative.org/confluence/display/uma/UMA+Implementer%27s+Guide
 http://kantarainitiative.org/confluence/display/uma/Home
 https://kit.mit.edu/projects/user-managed-access-uma
 https://www.ietf.org/proceedings/81/slides/oauth-2.pdf
