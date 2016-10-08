@@ -1,4 +1,6 @@
-﻿Web application authentication strategy
+﻿基于OAuth2.0, OpenID Connect及UMA协议的集中式用户资源自主管理实现与应用
+Web application authentication strategy
+
 
 OAuth2.0:
 https://tools.ietf.org/html/rfc6749
