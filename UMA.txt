@@ -1,5 +1,6 @@
 Resource owners configure authorization servers with access policies that serve as asynchronous authorization grants.
 
+
 -----Terminology-----
 protection API token (PAT): An OAuth access token with the scope uma_protection, used by the resource server at the protection API, consisting of the resource set registration, permission registration, and token introspection endpoints.
 resource set registration endpoint: An endpoint at the authorization server that allows the resource server to register resource sets.
@@ -14,6 +15,7 @@ authorization data: Data associated with an RPT that enables some combination of
 subject: requesting party
 verbs: one or more scopes of access
 object: resource set
+
 
 -----Authorization Server Configuration Data-----
 GET .well-known/uma-configuration
@@ -41,6 +43,37 @@ rpt_endpoint: The endpoint URI at which the client asks for authorization data.
 2. The authorization server issues client credentials to the resource server through OpenID Discovery and Dynamic Registration.
 3. The resource server acquires a PAT from the authorization server.
 4. resource server registers any resource sets with the authorization server using the resource set registration endpoint of the protection API.
+
+
+-----Resource Set Registration-----
+*When a client attempts access to a presumptively protected resource without an access token, the resource server needs to derive the authorization server and resource set identifier associated with that resource from some other aspect of the client's request.
+the resource server’s API needs to be structured in such a way that the client's request without an access token uniquely identifies the resource set.
+
+The resource server uses the RESTful API at the authorization server's resource set registration endpoint to create, read, update, and delete resource set descriptions, along with retrieving lists of such descriptions.
+{rsreguri}/resource_set, the {rsreguri} component is the authorization server's resource set registration endpoint.
+
+resource set description:
+name: A human-readable string describing a set of one or more resources. 
+uri: A URI that provides the network location for the resource set being registered.
+type: A string uniquely identifying the semantics of the resource set. 
+scopes: An array of strings indicating the available scopes for this resource set. 
+icon_uri: A URI for a graphic icon representing the resource set. 
+
+If a scope is a URI, then it MUST resolve to a scope description document. It is the resource server's responsibility to ensure that scope descriptions are accessible to authorization servers through GET calls.
+name: A human-readable string describing some scope of access.
+icon_uri: A URI for a graphic icon representing the scope. 
+
+Create resource set description: POST {rsreguri}/resource_set
+Read resource set description: GET {rsreguri}/resource_set/{_id}
+Update resource set description: PUT {rsreguri}/resource_set/{_id}
+Delete resource set description: DELETE {rsreguri}/resource_set/{_id}
+List resource set descriptions: GET {rsreguri}/resource_set
+
+Response properties:
+resource set description
+_id: A string value repeating the authorization server-defined identifier for the web resource corresponding to the resource set.
+user_access_policy_uri: A URI that allows the resource server to redirect an end-user resource owner to a specific user interface within the authorization server where the resource owner can immediately set or modify access policies subsequent to the resource set registration action just completed.
+
 
 -----Getting Authorization and Accessing a Resource-----
 1. Client Request to Resource Server With No RPT
