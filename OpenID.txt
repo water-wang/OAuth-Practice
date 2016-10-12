@@ -6,7 +6,6 @@ OAuth 2.0 Clients using OpenID Connect are also referred to as Relying Parties (
 OpenID Connect performs authentication to log in the End-User or to determine that the End-User is already logged in.
 
 
-
 ------OpenID Connect Core------
 With OpenID, you maintain your profile only at your OpenID provider, and all the other sites become OpenID relying parties. These “talk” with your OpenID provider to obtain your information.
 
@@ -90,60 +89,6 @@ birthdate
 address: formatted, street_address, locality, region, postal_code, country
 etc.
 
-OpenID Connect defines two ways to request user attributes. 
-1. The client application use the initial OpenID Connect authentication request to request attributes, include the requested claims in the claims parameter as a JSON message.
-https://localhost:9443/oauth2/authorize?
-        response_type=code&
-        scope=openid&
-        client_id=NJ0LXcfdOW20EvD6DU0l0p01u_Ya&
-        redirect_uri=https://localhost/callback&
-        claims={ "id_token":
-                            {
-                               "email": {"essential": true},
-                               "given_name": {"essential": true},
-                            }
-               }
-
-2. Later talk to a UserInfo endpoint hosted by the authorization server. 
-there are two ways to get user attributes from the UserInfo endpoint. 
--1.defines four scope values to request attributes: profile, email, address, and phone.
-https://localhost:9443/oauth2/authorize?
-        response_type=code&
-        scope=openid phone email&
-        client_id=NJ0LXcfdOW20EvD6DU0l0p01u_Ya&
-        redirect_uri=https://localhost/callback
-		
-GET /userinfo HTTP/1.1
-Host: auth.server.com
-Authorization: Bearer SJHkhew870hooi90
-
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-  {
-   "phone": "94712841302",
-   "email": "joe@authserver.com",
-  }
-
--2. retrieve user attributes from the UserInfo endpoint is through the claims parameter. 
-POST /userinfo HTTP/1.1
-Host: auth.server.com
-Authorization: Bearer SJHkhew870hooi90
-
-claims={ "userinfo":
-                    {
-                       "email": {"essential": true}
-                    }
-       }
-
-Using the claims parameter is the only way to request Claims outside the standard set.
-
-Aggregated Claims are asserted by a Claims Provider other than the OpenID Provider but are returned by OpenID Provider.
-Distributed Claims are asserted by a Claims Provider other than the OpenID Provider but are returned as references by the OpenID Provider.
-
-The sub (subject) and iss (issuer) Claims, used together, are the only Claims that an RP can rely upon as a stable identifier for the End-User
-
-
 
 ------OpenID Connect Discovery------
 OpenID Connect uses WebFinger to locate the OpenID Provider for an End-User.
@@ -189,6 +134,7 @@ GET /.well-known/openid-configuration
 request: host
 response: a subset of Metadata.
 
+Clients and protected resources SHOULD cache this discovery information valid for at least one week.
 
 
 ------OpenID Connect Dynamic Registration------
@@ -214,7 +160,6 @@ token_endpoint_auth_method: options are client_secret_post, client_secret_basic,
 default_max_age 
 
 
-
 Client Registration Endpoint:
 To support open Dynamic Registration, the Client Registration Endpoint SHOULD accept registration requests without OAuth 2.0 Access Tokens.
 These requests MAY be rate-limited or otherwise limited to prevent a denial-of-service attack on the Client Registration Endpoint.
@@ -234,7 +179,6 @@ Client MUST use its Registration Access Token in all calls to this endpoint as a
 Read request: GET /connect/register?client_id=s6BhdRkqt3 HTTP/1.1
 Read response: registered Metadata about Client
 Authorization Server need not include the registration_access_token or registration_client_uri value in this response unless they have been updated.
-
 
 
 ------OpenID Connect Session Management------
