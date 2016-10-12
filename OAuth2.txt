@@ -82,6 +82,11 @@ OAuth token type:
 
 
 
+-----JSON Web Token Profile-----
+Full clients and direct access clients as defined above MUST authenticate to the authorization server's token endpoint using a JWT assertion.
+
+
+
 
 
 

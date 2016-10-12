@@ -2,55 +2,47 @@
 Web application authentication strategy
 
 
-OAuth2.0:
-https://tools.ietf.org/html/rfc6749
-https://tools.ietf.org/html/rfc6750
+---------------OAuth2.0---------------
+Authorization Framework: 					https://tools.ietf.org/html/rfc6749
+Bearer Token Usage: 						https://tools.ietf.org/html/rfc6750
+Token Introspection: 						https://tools.ietf.org/html/rfc7662
+JSON Web Token Profile for OAuth: 			https://tools.ietf.org/html/rfc7523
+Assertion Framework for OAuth: 				https://tools.ietf.org/html/rfc7521
+Dynamic Client Registration Protocol: 		https://tools.ietf.org/html/rfc7591
+Message Authentication Code (MAC) Tokens: 	https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-05
+
 https://www.safaribooksonline.com/library/view/identity-and-data/9781491937006/ch01.html#ch1
 https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
 http://code.tutsplus.com/articles/oauth-20-the-good-the-bad-the-ugly--net-33216
 http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 http://blog.takipi.com/tutorial-how-to-implement-java-oauth-2-0-to-sign-in-with-github-and-google/
 
-OAuth 2.0 Token Introspection: https://tools.ietf.org/html/rfc7662
-OAuth 2.0 Dynamic Client Registration Protocol: https://tools.ietf.org/html/rfc7591
-OAuth 2.0 Message Authentication Code (MAC) Tokens: https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-05
 
+---------------OpenID Connect---------------
+OpenID Connect Core: 						http://openid.net/specs/openid-connect-core-1_0.html
+OpenID Connect Discovery: 					http://openid.net/specs/openid-connect-discovery-1_0.html
+Dynamic Client Registration: 				http://openid.net/specs/openid-connect-registration-1_0.html
+Session Management: 						https://openid.net/specs/openid-connect-session-1_0.html
+Multiple Response Type: 					http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
+Form Post Response Mode:					http://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html
+Basic Client Implementer's Guide: 			http://openid.net/specs/openid-connect-basic-1_0.html
+Trust Profile for OAuth 2.0:				http://openid.net/specs/openid-heart-oauth2-1_0.html
+Trust Profile for OpenID Connect 1.0:		http://openid.net/specs/openid-heart-openid-connect-1_0.html
+Trust Profile for User Managed Access 1.0	http://openid.net/specs/openid-heart-uma-1_0.html
 
-OpenID Connect:
-http://openid.net/specs/openid-connect-core-1_0.html
-http://openid.net/specs/openid-connect-discovery-1_0.html
-http://openid.net/specs/openid-connect-registration-1_0.html
-https://openid.net/specs/openid-connect-session-1_0.html
-http://openid.net/specs/openid-connect-basic-1_0.html
 http://openid.net/2014/02/26/the-openid-foundation-launches-the-openid-connect-standard/
-http://openid.net/2016/05/23/announcing-the-financial-api-fapi-working-group/
-http://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
 https://www.safaribooksonline.com/library/view/advanced-api-security/9781430268178/
 
 
-User Managed Access (UMA): single-point authorization management
-https://docs.kantarainitiative.org/uma/rec-uma-core.html
-https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html
-https://kantarainitiative.org/confluence/display/uma/UMA+Implementer%27s+Guide
-http://kantarainitiative.org/confluence/display/uma/Home
-https://kit.mit.edu/projects/user-managed-access-uma
-https://www.ietf.org/proceedings/81/slides/oauth-2.pdf
-
-SAML2.0 Profile: https://tools.ietf.org/html/rfc7522
-JWT Profile: https://tools.ietf.org/html/rfc7523
-
-JWT: https://tools.ietf.org/html/rfc7519
-JWS: https://tools.ietf.org/html/rfc7515
-JWE: https://tools.ietf.org/html/rfc7516
-
-ASP.NET Identity
-http://www.asp.net/identity
-http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx
-http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/
-http://bitoftech.net/2015/01/21/asp-net-identity-2-with-asp-net-web-api-2-accounts-management/
-https://leastprivilege.com/2013/11/15/adding-refresh-tokens-to-a-web-api-v2-authorization-server/
-http://blog.timney.net/persisting-your-refresh-tokens/
+---------------User Managed Access (UMA)---------------
+User-Managed Access Core: 					https://docs.kantarainitiative.org/uma/rec-uma-core.html
+Resource Set Registration: 					https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html
+UMA Implementer's Guide: 					https://kantarainitiative.org/confluence/display/uma/UMA+Implementer%27s+Guide
+UMA Home: 									http://kantarainitiative.org/confluence/display/uma/Home
 
 
-RPC，AD，Dubboo, SSO, OpenId
-
+---------------Others---------------
+SAML 2.0 Profile: 							https://tools.ietf.org/html/rfc7522
+JSON Web Token (JWT): 						https://tools.ietf.org/html/rfc7519
+JSON Web Signature (JWS): 					https://tools.ietf.org/html/rfc7515
+JSON Web Encryption (JWE): 					https://tools.ietf.org/html/rfc7516
