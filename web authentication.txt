@@ -1,4 +1,4 @@
-﻿基于OAuth2.0, OpenID Connect及UMA协议的集中式用户资源自主管理实现与应用
+基于OAuth2.0, OpenID Connect及UMA协议的集中式用户资源自主管理实现与应用
 Web application authentication strategy
 
 
@@ -6,6 +6,7 @@ Web application authentication strategy
 Authorization Framework: 					https://tools.ietf.org/html/rfc6749
 Bearer Token Usage: 						https://tools.ietf.org/html/rfc6750
 Token Introspection: 						https://tools.ietf.org/html/rfc7662
+Token Revocation:							https://tools.ietf.org/html/rfc7009
 JSON Web Token Profile for OAuth: 			https://tools.ietf.org/html/rfc7523
 Assertion Framework for OAuth: 				https://tools.ietf.org/html/rfc7521
 Dynamic Client Registration Protocol: 		https://tools.ietf.org/html/rfc7591
@@ -46,3 +47,4 @@ SAML 2.0 Profile: 							https://tools.ietf.org/html/rfc7522
 JSON Web Token (JWT): 						https://tools.ietf.org/html/rfc7519
 JSON Web Signature (JWS): 					https://tools.ietf.org/html/rfc7515
 JSON Web Encryption (JWE): 					https://tools.ietf.org/html/rfc7516
+JSON Web Key (JWK):							https://tools.ietf.org/html/rfc7517
