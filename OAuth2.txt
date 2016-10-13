@@ -66,6 +66,23 @@ sub: The subject identifier of the user who approved the authorization grant.
 aud: The allowed audience for the token.
 
 
+------Token Revocation------
+Notifying the authorization server that the token is no longer needed allows the authorization server to clean up data associated with that token and the underlying authorization grant.
+Request:
+client credentials 
+token: the token that the client wants to get revoked.
+token_type_hint: a hint about the type of the token submitted for revocation.(either the access_token or the refresh_token)
+1. authorization server validates the client credentials.
+2. authorization server verifies whether the token was issued to the client.
+3. authorization server invalidates the token.
+
+If the particular token is a refresh token and the authorization server supports the revocation of access tokens, then the authorization server SHOULD also invalidate all access tokens.
+If the token passed to the request is an access token, the server MAY revoke the respective refresh token as well.
+
+Response:
+HTTP status code; invalid tokens do not cause an error response
+
+
 ------Assertion Framework & JWT Profile------
 Full clients and direct access clients MUST authenticate to the authorization server's token endpoint using a JWT assertion.
 An assertion is a package of information that allows identity and security information to be shared across security domains.
