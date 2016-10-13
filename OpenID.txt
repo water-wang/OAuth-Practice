@@ -19,41 +19,29 @@ OpenID Code Flow:
 7. Client validates the tokens and retrieves the End-User's Subject Identifier.
 
 Authentication Request:
-response_type
-client_id
-scope
-redirect_uri
-state
-prompt: whether the Authorization Server prompts the End-User for reauthentication and consent
-max_age: elapsed time in seconds since the last time the End-User was actively authenticated by the OP
-id_token_hint: ID Token previously issued by the Authorization Server being passed as a hint about the End-User's current or past authenticated session with the Client
-
-Authorization Server Authenticates End-User:
-The Authorization Server logs in the End-User or verifies whether the End-User is logged in, depending upon the request parameter values used.
-
-Authorization Server Obtains End-User Consent/Authorization:
-presenting the End-User with a dialogue that enables the End-User to recognize what is being consenting to and grant consent
-
-End-User Grants Authorization:
-If the End-User grants the access request, the Authorization Server issues a code and delivers it to the Client
-
-Client Sends Code:
-Client makes a Token Request by presenting its Authorization Grant to the Token Endpoint using the grant_type value authorization_code
+1. response_type
+2. client_id
+3. scope
+4. redirect_uri
+5. state
+6. prompt: whether the Authorization Server prompts the End-User for reauthentication and consent
+7. max_age: elapsed time in seconds since the last time the End-User was actively authenticated by the OP
+8. id_token_hint: ID Token previously issued by the Authorization Server being passed as a hint about the End-User's current or past authenticated session with the Client
 
 Client Receives Tokens:
-access_token: Access Token for the UserInfo Endpoint
-token_type: Bearer
-id_token
-expires_in
-refresh_token
+1. access_token: Access Token for the UserInfo Endpoint
+2. token_type: Bearer
+3. id_token
+4. expires_in
+5. refresh_token
 
 ID Token: The sub and iss Claims, used together, are the only Claims that an RP can rely upon as a stable identifier for the End-User
-iss: Issuer Identifier for the Issuer of the response. authorization server url
-sub: unique and never reassigned identifier within the Issuer for the End-User
-aud: client_id of the Relying Party as an audience value
-exp: Expiration time on or after which the ID Token
-iat: Time at which the JWT was issued
-auth_time: Time when the End-User authentication occurred.
+1. iss: Issuer Identifier for the Issuer of the response. authorization server url
+2. sub: unique and never reassigned identifier within the Issuer for the End-User
+3. aud: client_id of the Relying Party as an audience value
+4. exp: Expiration time on or after which the ID Token
+5. iat: Time at which the JWT was issued
+6. auth_time: Time when the End-User authentication occurred.
 
 ID Token Validation:
 1. The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
@@ -69,25 +57,25 @@ request: GET /userinfo HTTP/1.1 Access Token
 response: sub (subject) Claim MUST always be returned, MUST be verified to exactly match the sub Claim in the ID Token
 
 Scope Values: To minimize the amount of information that the End-User is being asked to disclose
-openid
-profile: the End-User's default profile Claims
-email
-address
-phone
-offline_access: requests Refresh Token be issued that can be used to obtain an Access Token that grants access to the End-User's UserInfo Endpoint even when the End-User is not logged in
+1. openid
+2. profile: the End-User's default profile Claims
+3. email
+4. address
+5. phone
+6. offline_access: requests Refresh Token be issued that can be used to obtain an Access Token that grants access to the End-User's UserInfo Endpoint even when the End-User is not logged in
 Multiple scope values MAY be used by creating a space-delimited, case-sensitive list
 
 Standard Claims: The UserInfo Endpoint MUST return Claims in JSON format
-sub
-name
-profile
-picture
-website
-email
-gender
-birthdate
-address: formatted, street_address, locality, region, postal_code, country
-etc.
+1. sub
+2. name
+3. profile
+4. picture
+5. website
+6. email
+7. gender
+8. birthdate
+9. address: formatted, street_address, locality, region, postal_code, country
+10. etc.
 
 
 ------OpenID Connect Discovery------
@@ -136,6 +124,8 @@ response: a subset of Metadata.
 
 Clients and protected resources SHOULD cache this discovery information valid for at least one week.
 
+QUESTIONS: 
+1. how does webfinger server host?
 
 ------OpenID Connect Dynamic Registration------
 Client Metadata:

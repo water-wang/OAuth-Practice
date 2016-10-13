@@ -1,4 +1,4 @@
------Client Registration-----
+------Client Registration------
 Specify the client type
 confidential - a confidential server-based component
 public - a public browser-based component
@@ -17,7 +17,7 @@ provide its client redirection URIs
 include any other information required by the authorization server(application name, redirect uri)
 
 
------Protocol Endpoints-----
+------Protocol Endpoints------
 Authorization endpoint:
 authorization server MUST first verify the identity of the resource owner, SHOULD require the use of TLS.
 response_type MUST be one of "code" for requesting an authorization code, "token" for requesting an access token or a registered extension value.
@@ -48,15 +48,7 @@ authorization server MUST require public clients and SHOULD require confidential
 Redirection endpoint
 
 
-----------Roles----------
-OAuth2: authorization
-OpenID Connect: authorization server authenticates user identity.
-SAML2/JWT Profile: authorization server authenticates client application(broker authentication assertion).
-Token Introspection: resource server to verify access token.
-
-
-
------Token Introspection Profile-----
+------Token Introspection Profile------
 If the authorization server supports the OAuth Introspection specification, the resource server can talk to the introspection endpoint and finds out whether the token is active or not and also what scopes are associated with the token.
 The Token Introspection profile for OAuth 2.0 proposing a standard API to be exposed by the authorization server, allowing the resource server to talk to it and retrieve token metadata.
 
@@ -74,25 +66,37 @@ sub: The subject identifier of the user who approved the authorization grant.
 aud: The allowed audience for the token.
 
 
------Dynamic Client Registration Profile-----
-OAuth token type:
-1. Bearer token
-2. MAC(message authentication code) token
+------Assertion Framework & JWT Profile------
+Full clients and direct access clients MUST authenticate to the authorization server's token endpoint using a JWT assertion.
+An assertion is a package of information that allows identity and security information to be shared across security domains.
 
+Issuer: the entity that creates and signs or integrity-protects the assertion.
+Relying Party: the entity that consumes the assertion and relies on its information.
 
+client obtains the assertion patterns:
+1. Assertion Created by Third Party
+2. Self-Issued Assertion
 
+assertions type:
+1. Bearer Assertions: access to the associated resources without demonstrating possession of a cryptographic key.
+2. Holder-of-Key Assertions: the entity presenting the assertion must demonstrate possession of additional cryptographic material.
 
------JSON Web Token Profile-----
-Full clients and direct access clients as defined above MUST authenticate to the authorization server's token endpoint using a JWT assertion.
+Using JWTs as client credentials for Client Authentication:
+1. client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+2. client_assertion: the assertion contains a single JWT being used to authenticate the client
 
+JWT Assertion Format: MUST be digitally signed or have a MAC applied
+1. iss: a unique identifier for the entity that issued the JWT assertion; client_id for self-issued assertions.
+2. sub: a unique identifier for the principal that is the subject of the JWT assertion, client_id when using assertions for client authentication.
+3. aud: a value that identifies the authorization server as an intended audience.
+4. exp: limits the time window during which the JWT assertion can be used.
+5. nbf(not before): identifies the time before which the token MUST NOT be accepted for processing.
+4. iat: the time at which the JWT assertion was issued.
+6. jti(JWT ID): a unique identifier for the token.
 
-
-
-
-
-
-
-
+QUESTIONS: 
+1. how is a JWTs generated?  --JWT
+2. when does JWTs generated?	--before request token endpoint
 
 
 
