@@ -1,0 +1,20 @@
+{
+  "name": "uam-as",
+  "version": "1.0.0",
+  "description": "UMA-Authorization server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "UMA"
+  ],
+  "author": "Walter Wang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.5",
+    "node-uuid": "^1.4.7"
+  }
+}
