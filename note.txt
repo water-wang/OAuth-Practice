@@ -1,0 +1,4 @@
+openssl: http://slproweb.com/products/Win32OpenSSL.html
+
+certificate signing request (CSR)
+certificate file (CRT)
